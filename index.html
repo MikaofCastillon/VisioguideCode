@@ -3,17 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <title>Accès Visioguide</title>
+  <!-- Partie 1 : Code PayPal dans le <head> -->
+  <script
+    src="https://www.paypal.com/sdk/js?client-id=BAAsVW1q6JYqBi61kKSktKQU_QaLtt6vfMKfJPW3FvybwM4gftU2XN7TzPYwilUkPOrgC3_yYatW9&disable-funding=venmo&currency=EUR">
+  </script>
 </head>
 <body>
   <h1>Accès à votre visioguide</h1>
   <p>Merci de procéder au paiement sécurisé :</p>
-
-  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-    <input type="hidden" name="cmd" value="_s-xclick">
-    <input type="hidden" name="hosted_button_id" value="4YUHD6ETUUXBN">
-    <input type="hidden" name="currency_code" value="EUR">
-    <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_buynowCC_LG.gif" name="submit" alt="PayPal">
-    <img alt="" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
-  </form>
+  
+  <!-- Partie 2 : Container pour le bouton PayPal -->
+  <div id="paypal-container-YABY8EM5ZB7LE"></div>
+  <script>
+    paypal.HostedButtons({
+      hostedButtonId: "YABY8EM5ZB7LE",
+    }).render("#paypal-container-YABY8EM5ZB7LE")
+  </script>
+  
+  <!-- Gardons aussi l'ancien bouton en secours (caché) -->
+  <div style="display: none;">
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+      <input type="hidden" name="cmd" value="_s-xclick">
+      <input type="hidden" name="hosted_button_id" value="4YUHD6ETUUXBN">
+      <input type="hidden" name="currency_code" value="EUR">
+      <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_buynowCC_LG.gif" name="submit" alt="PayPal">
+      <img alt="" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
+    </form>
+  </div>
 </body>
 </html>
