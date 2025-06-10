@@ -1,21 +1,18 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <title>Accès Visioguide</title>
-  <!-- Partie 1 : SDK PayPal -->
-  <script src="https://www.paypal.com/sdk/js?client-id=BAAsVW1g6JYvg8i6lkK5ktkQU_OaLttGvfMKfJPWa3EvybwM4gftU2XN7TzPYwiUkPOrgC3_vYaIvW9&disable-funding=venmo&currency=EUR"></script>
 </head>
 <body>
   <h1>Accès à votre visioguide</h1>
   <p>Merci de procéder au paiement sécurisé :</p>
-
-  <!-- Partie 2 : Container + script du bouton -->
-  <div id="paypal-container-YABY8EM5ZB7LE"></div>
-  <script>
-    paypal.HostedButtons({
-      hostedButtonId: "YABY8EM5ZB7LE",
-    }).render("#paypal-container-YABY8EM5ZB7LE");
-  </script>
+  <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+    <input type="hidden" name="cmd" value="_s-xclick">
+    <input type="hidden" name="hosted_button_id" value="YABY8EM5ZB7LE">
+    <input type="hidden" name="currency_code" value="EUR">
+    <input type="image" src="https://www.paypalobjects.com/fr_FR/FR/i/btn/btn_buynowCC_LG.gif" name="submit" alt="PayPal">
+    <img alt="" src="https://www.paypalobjects.com/fr_FR/i/scr/pixel.gif" width="1" height="1">
+  </form>
 </body>
 </html>
